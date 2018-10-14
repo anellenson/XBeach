@@ -5,14 +5,13 @@ import netCDF4 as nc
 
 def toDateTime(d):
     return (dt.datetime(1970,1,1) + dt.timedelta(seconds = d))
-  
+
 def toTimestamp(d):
     return (d-dt.datetime(1970,1,1)).total_seconds()
 
 def retrieveData(Yr,Mo,Da):
 #First pull in the bathymetry you want to use
-    base_dir = '/home/server/pi/homes/aellenso/Research/XBeach1/'
-    surveyinfo = pd.read_pickle(base_dir + '/data/surveyinfo.pickle')
+    surveyinfo = pd.read_pickle('../data/surveyinfo.pickle')
     sind = np.where(surveyinfo['dates'] > dt.datetime(Yr,Mo,Da))[0][-1]
     bathyset = nc.Dataset('https://chlthredds.erdc.dren.mil/thredds/dodsC/frf/geomorphology/elevationTransects/survey/' + surveyinfo['bathy_fnames'].iloc[sind] + '.nc')
     return bathyset
