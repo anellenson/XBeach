@@ -64,45 +64,46 @@ c = 0.09
 #Find sea depth and shore depth
 h0 = np.array(h0)
 offshore = np.where(np.abs(h0-4.5) == np.min(np.abs(h0-4.5)))[0][0]
-h0_shore = h0[shore_ind]
+h0_shore = h0[0]
 h0_sea = h0[offshore]
 x_sea = x[offshore]
 Smax = 0.2*h0_sea
 bar_zone_depth = [(hh - h0_shore)/(h0_sea - h0_shore) for hh in h0]
-expfun = [np.exp(-1*((1 - bb)**a - b)**2/c) for bb in bar_zone_depth]
+expfun = [np.exp(-((1 - ((hh-h0_shore)/(h0_sea-h0_shore)))**a - b)**2/c) for hh in h0]
 maxInd = np.where(expfun == np.nanmax(expfun))[0][0]
-xmax = x[maxInd)[0]][0]
+xmax = x[maxInd]
 
 #S is the envelope function constrained to a maximum amplitude of Smax that's offset in order
 #to force that S = 0 at x = 0 and S = delta at h0_sea 
 S = []
-for xi,xx in enumerate(x[:offshore]):
-        S.append(xx/x_sea*delta + (Smax - delta*(xmax/x_sea))*expfun[xi])
-
+for xi,xx in enumerate(x[:offshore+1]):
+        S.append(xx/x_sea*delta + (Smax)*expfun[xi])
 
 #Exponential taper offshore for S with the same slope as the offshore point
-betaoff = S[offshore-1]/h0[offshore-1]
-k = betaoff/S[-1]
-for hh in h0[offshore:]:
-    S.append(S[-1]*np.exp(-k*(hh-h0[offshore])))
+betaoff = (S[offshore]-S[offshore-1])/(h0[offshore]-h0[offshore-1])
+k = -betaoff/S[offshore]
+for hh in h0[offshore+1:]:
+    S.append(S[offshore]*np.exp(-k*(hh-h0[offshore])))
 
 #Bar phase function constants 
 aL = 100
 bL = 0.27
 #Find theta, theta is the integral of 2pi/L from the offshore location to the shoreline
 L = [aL*np.exp(bL*hh) for hh in h0]
-theta = np.zeros((x.shape))
-for ii in range(len(x[:offshore])):
-    int_L = L[ii:offshore]
-    int_x = x[ii:offshore]
-    int_L.reverse()
-    int_x = np.flip(int_x,axis = 0)
-    integrand = [(2*np.pi)/ll for ll in int_L]
-    integral = np.trapz(integrand,int_x)
-    theta[ii] = integral
+Lpi = [2*np.pi/ll for ll in L]
+Lpi.reverse()
+int_x = np.flip(x,axis = 0)
+dx = np.mean(np.diff(x))
+theta = np.flip(np.cumsum(Lpi)*dx,axis = 0)
 
-#Cosine function
-cos = np.cos(theta - theta[100])
+#Cosine function, find at depth of breaking
+xb = 180
+hb = np.interp(xb,x,h0)
+thetab = np.interp(hb,h0,theta)
+cos = np.cos(theta - thetab)
 hbar = -1*np.multiply(S,cos)
 
 transect_simulated = h0 + hbar
+
+pl.plot(x,-1*transect_simulated)
+pl.plot(x,-1*transect)
