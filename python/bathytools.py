@@ -12,7 +12,7 @@ def toTimestamp(d):
 def retrieveData(Yr,Mo,Da):
 #First pull in the bathymetry you want to use
     surveyinfo = pd.read_pickle('../data/surveyinfo.pickle')
-    sind = np.where(surveyinfo['dates'] > dt.datetime(Yr,Mo,Da))[0][-1]
+    sind = np.where(surveyinfo['dates'] >= dt.datetime(Yr,Mo,Da))[0][-1]
     bathyset = nc.Dataset('https://chlthredds.erdc.dren.mil/thredds/dodsC/frf/geomorphology/elevationTransects/survey/' + surveyinfo['bathy_fnames'].iloc[sind] + '.nc')
     return bathyset
 
