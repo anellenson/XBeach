@@ -9,9 +9,12 @@ interactive(True)
 from scipy.optimize import fsolve
 import bathytools as bt
 
-bathyset = bt.retrieveData(2016,6,1)
-pNumber = 914
+bathyset = bt.retrieveData(2016,month,26)
+pNumber = 1006
 time,x,transect = bt.transect(bathyset,pNumber)
+pl.plot(x,transect)
+
+hsea = 3.9
 
 
 ##beta is the asymptotic offshore slope, assume an x number to be seaward of the active
@@ -29,14 +32,14 @@ x = x[shore_ind:]-x[shore_ind]
 transect = -1*transect[shore_ind:]
 
 #Find slope seaward of bar movement as where h=4.5m. (Holman)
-offshore = np.where(np.abs(transect-4.5) == np.min(np.abs(transect-4.5)))[0][0]
+offshore = np.where(np.abs(transect-hsea) == np.min(np.abs(transect-hsea)))[0][0]
 beta = np.divide(np.diff(transect[offshore:]),np.diff(x[offshore:]))
 beta_0 = np.mean(beta)
 
 ##Choose a point to find depth h_, randomly chose 60 offshore of the offshore point
 #Criteria is that betaOffshore * x Offshore < hOffshore
-h_ = transect[offshore+60]
-x_ = x[offshore+60]
+h_ = transect[offshore+10]
+x_ = x[offshore+10]
 
 
 #Now, find gamma and k by solving the two functions (equations 5 and 7) simultaneously
@@ -63,11 +66,11 @@ delta = 0.3
 c = 0.09
 #Find sea depth and shore depth
 h0 = np.array(h0)
-offshore = np.where(np.abs(h0-4.5) == np.min(np.abs(h0-4.5)))[0][0]
+offshore = np.where(np.abs(h0-hsea) == np.min(np.abs(h0-hsea)))[0][0]
 h0_shore = h0[0]
 h0_sea = h0[offshore]
 x_sea = x[offshore]
-Smax = 0.2*h0_sea
+Smax = 0.3*h0_sea
 bar_zone_depth = [(hh - h0_shore)/(h0_sea - h0_shore) for hh in h0]
 expfun = [np.exp(-((1 - ((hh-h0_shore)/(h0_sea-h0_shore)))**a - b)**2/c) for hh in h0]
 maxInd = np.where(expfun == np.nanmax(expfun))[0][0]
@@ -92,18 +95,15 @@ bL = 0.27
 L = [aL*np.exp(bL*hh) for hh in h0]
 Lpi = [2*np.pi/ll for ll in L]
 Lpi.reverse()
-int_x = np.flip(x,axis = 0)
 dx = np.mean(np.diff(x))
 theta = np.flip(np.cumsum(Lpi)*dx,axis = 0)
 
 #Cosine function, find at depth of breaking
-xb = 180
+xb = 170
 hb = np.interp(xb,x,h0)
 thetab = np.interp(hb,h0,theta)
 cos = np.cos(theta - thetab)
 hbar = -1*np.multiply(S,cos)
-
 transect_simulated = h0 + hbar
-
-pl.plot(x,-1*transect_simulated)
-pl.plot(x,-1*transect)
+pl.plot(x,-1*transect_simulated, label = 'hsea' + str(hsea))
+pl.plot(x,-1*transect, label = 'hsea' + str(hsea))
