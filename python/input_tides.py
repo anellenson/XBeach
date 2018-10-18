@@ -9,13 +9,13 @@ timeZone = 'lst'
 application ='web_services'
 Format ='csv'
 products = 'hourly_height'
-no_days = np.arange(0,19)
-start_date = dt.datetime(2017,3,27,15) #Start one hour before the waves
+no_days = np.arange(0,2)
+start_date = dt.datetime(2017,3,26,15) #Start one hour before the waves
 dt_vec = [start_date + dt.timedelta(days = int(x)) for x in no_days]
 seconds = []
 waterlevel = []
 
-fname = '/home/server/pi/homes/aellenso/Research/XBeach/runs/p960.3272017/base/tides.txt'
+fname = '/Users/ashleyellenson/Research/XBeach/model/run/Hs0.5/tides.txt'
 
 for dd in dt_vec:
     tideurl = 'https://tidesandcurrents.noaa.gov/api/datagetter?begin_date='  + dd.strftime('%Y%m%d') + \
@@ -31,8 +31,8 @@ for dd in dt_vec:
         my_list = list(cr)
         for row in my_list[1:]:#First entry is the header, and have to start on the second entry
             dt_row = dt.datetime.strptime(row[0],'%Y-%m-%d %H:%M')
-            if dt_row > start_date:  
-                seconds.append((dt.datetime.strptime(row[0],'%Y-%m-%d %H:%M') - start_date).total_seconds()) 
+            if dt_row > start_date:
+                seconds.append((dt.datetime.strptime(row[0],'%Y-%m-%d %H:%M') - start_date).total_seconds())
                 waterlevel.append(np.float(row[1]))
 
 with open(fname, "w") as text_file:

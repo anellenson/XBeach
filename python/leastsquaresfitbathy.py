@@ -9,6 +9,7 @@ from matplotlib import interactive
 interactive(True)
 from scipy.optimize import fsolve
 import bathytools as bt
+import scipy.io as sio
 
 def genbathy(pars, x, transect):
     parvals = pars.valuesdict()
@@ -108,16 +109,16 @@ def genbathy(pars, x, transect):
     hbar = -1*np.multiply(S,cos)
     transect_simulated = h0 + hbar
 
-    return transect, transect_simulated
+    return transect, transect_simulated, x
 
 def residuals(params,x,transect):
-    transect, transect_simulated = genbathy(params,x,transect)
+    transect, transect_simulated,x = genbathy(params,x,transect)
     residuals = transect - transect_simulated
     return residuals
 
-#bathyset = bt.retrieveData(2017,3,1)
+bathyset = bt.retrieveData(2017,3,1)
 pNumber = 960
-time,x,transect = bt.transect(bathyset,pNumber)
+time,fullx,fulltransect = bt.transect(bathyset,pNumber)
 
 
 params = Parameters()
@@ -125,23 +126,28 @@ params.add('xb',value = 159.4)
 params.add('hsea',value = 3.9, min = 3, max = 4.5)
 params.add('Sval_coeff',value = 0.2)
 params.add('x_',value = 400)
-out = minimize(residuals, params, args = (x,transect))
-transect,transect_simulated = genbathy(out.params,x,transect)
+out = minimize(residuals, params, args = (fullx,fulltransect))
+transect,transect_simulated,x = genbathy(out.params,fullx,fulltransect)
 
 ##Now add a shoreline to the transect
-x = np.linspace(1,100)
-shore_range = np.where((transect < 0.5) & (transect > -0.5))[0]
-beta_s = np.divide(np.diff(transect[shore_range]),np.diff(x[shore_range]))
+shore_range = np.where((fulltransect < 0.5) & (fulltransect > -0.5))[0]
+beta_s = np.divide(np.diff(fulltransect[shore_range]),np.diff(fullx[shore_range]))
 beta_s = np.mean(beta_s)
 
 #Find how long the x vector has to be for it to reach 0 from 4 meters
-x_len = fsolve(lambda b0: 4 + beta_s*b0 - transect_simulated[0], 10)
+b0 = -1*transect_simulated[0]
+height = 4
+x_len = 5
+x_len = fsolve(lambda tau: height - b0 + beta_s*tau, 10)
 x_len = np.ceil(x_len)[0]
-x_shoreline = np.linspace(0,x_len,num = x_len)
-shore_slope = np.multiply(beta_s,x_shoreline)+4
-transect_simulated[0] = shore_slope[-1]
-transect_simulated = np.append(shore_slope,-1*transect_simulated)
-diff_x = x_shoreline[-1]-x[shore_ind]
-x = x[shore_ind:] + diff_x
+x_shoreline = np.linspace(0,x_len,num = x_len/2)
+shore_slope = np.multiply(beta_s,x_shoreline)+height
+append_ind = np.where(shore_slope >= -1*transect_simulated[0])[0]
+append_ind = append_ind[:-1]
+transect_simulated = np.append(shore_slope[append_ind],-1*transect_simulated)
+diff_x = x_shoreline[-1]-x[0]
+x = x + diff_x
+x_simulated = np.append(x_shoreline[append_ind], x)
 
-x = np.append(x_shoreline, x)
+transect_dict = {'x':x_simulated,'z':transect_simulated}
+sio.savemat('../model/grids/3.2017.simulated_transect.mat',transect_dict)

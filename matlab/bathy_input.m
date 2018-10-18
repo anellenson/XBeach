@@ -1,5 +1,6 @@
-function bathy_input(ncfilename) 
-basedir = '/home/server/pi/homes/aellenso/Research/XBeach/grids/'
+function bathy_input(matfilename) 
+
+
 ncfilename = ['/home/server/pi/homes/aellenso/Research/XBeach/ArmyCorps/data/FRF_20170327_1132_FRF_NAVD88_LARC_GPS_UTC_v20170408.nc']
 lat = ncread(ncfilename, 'lat');
 lon = ncread(ncfilename, 'lon');
@@ -13,6 +14,7 @@ z = bathy(p_inds);
 x_transect = x(p_inds);
 x_transect = x_transect-x_transect(1);
 z = flipud(z);
+
 
 [xgrd,zgrd] = xb_grid_xgrid(x_transect,z);
 
