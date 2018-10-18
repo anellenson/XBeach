@@ -1,0 +1,86 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% XBeach parameter settings input file                                     %%%
+%%%                                                                          %%%
+%%% date:     09-Sep-2011 09:45:52                                           %%%
+%%% function: xb_write_params                                                %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Grid parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+depfile   = bed.dep
+posdwn    = 0
+nx        = 209
+ny        = 0
+alfa      = 0
+vardx     = 1
+xfile     = x.grd
+yfile     = y.grd
+xori      = 0
+yori      = 0
+thetamin  = 0 
+thetamax  = 360
+dtheta    = 360
+thetanaut = 1 
+
+%%% Initial conditions %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+zs0       = 0 
+
+%%% Model time %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+tstop     = 120960 
+
+%%% Wave boundary condition parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+instat    = jons
+random    = 0
+rt        = 120960
+dtbc      = 1
+
+%%% Wave Condition parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+bcfile = jonswap.txt
+
+%%%%%%%%%%% Morphology Parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+morfac = 10
+morphology = 1
+facua = 0.2
+
+%%% Output variables %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+tstart       = 0
+tintg        = 500
+tintm        = 1080
+outputformat = netcdf
+nglobalvar   =  10
+zb
+As
+Sk
+H
+ua
+u
+ue
+Susg
+Subg
+Sutot
+
+
+nmeanvar = 10
+As
+Sk
+zb
+H
+ua
+u
+ue
+Susg
+Subg
+Sutot
+
+npoints = 2
+0. 0. offshore
+500. 0. bar
+
+npointvar = 2
+zs
+H

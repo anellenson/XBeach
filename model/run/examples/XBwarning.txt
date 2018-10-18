@@ -1,0 +1,10 @@
+                thetamax  = 360.0000 Warning: value > recommended value of 180.0000
+                  dtheta  = 360.0000 Warning: value > recommended value of 20.0000
+                      rt  = 120960.0000 Warning: value > recommended value of 7200.0000
+  Warning: 2D absorbing boundary condition [front=abs_2d] reduces to a
+           1D absorbing boundary condition [front=abs_1d] in
+           1D mode [ny=0]
+  Warning: 2D absorbing boundary condition [back=abs_2d] reduces to a
+           1D absorbing boundary condition [back=abs_1d] in
+           1D mode [ny=0]
+  Warning: shallow water so long wave variance is reduced using par%nmax
