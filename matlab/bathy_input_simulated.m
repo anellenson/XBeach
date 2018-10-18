@@ -3,7 +3,7 @@ cd('xbeach_release_10May2013')
 basedir = '../../model/grids/'
 
 load([basedir, '3.2017.simulated_transect.mat'])
-z = flipud(z);
+z = fliplr(z);
 
 addpathfast('.')
 

@@ -148,6 +148,7 @@ transect_simulated = np.append(shore_slope[append_ind],-1*transect_simulated)
 diff_x = x_shoreline[-1]-x[0]
 x = x + diff_x
 x_simulated = np.append(x_shoreline[append_ind], x)
+transect_smoothed = sfilter(transect_simulated,39,3)
 
-transect_dict = {'x':x_simulated,'z':transect_simulated}
+transect_dict = {'x':x_simulated,'z':transect_smoothed}
 sio.savemat('../model/grids/3.2017.simulated_transect.mat',transect_dict)

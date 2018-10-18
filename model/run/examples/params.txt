@@ -9,7 +9,7 @@
 
 depfile   = bed.dep
 posdwn    = 0
-nx        = 98
+nx        = 209
 ny        = 0
 alfa      = 0
 vardx     = 1
@@ -24,18 +24,17 @@ thetanaut = 1
 
 %%% Initial conditions %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-zs0file       = tides.txt
-tideloc       = 1 
+zs0       = 0 
 
 %%% Model time %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-tstop     = 172800 
+tstop     = 120960 
 
 %%% Wave boundary condition parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 instat    = jons
 random    = 0
-rt        = 172800
+rt        = 120960
 dtbc      = 1
 
 %%% Wave Condition parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -43,29 +42,44 @@ dtbc      = 1
 bcfile = jonswap.txt
 
 %%%%%%%%%%% Morphology Parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%5
-morfac = 3
+morfac = 10
 morphology = 1
+facua = 0.1
 
 %%% Output variables %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 tstart       = 0
 tintg        = 500
-tintm        = 3600
+tintm        = 1080
 outputformat = netcdf
-nglobalvar   = 3
+nglobalvar   =  10
 zb
+As
+Sk
 H
+ua
 u
+ue
+Susg
+Subg
+Sutot
 
 
-nmeanvar = 3
+nmeanvar = 10
+As
+Sk
 zb
 H
+ua
 u
+ue
+Susg
+Subg
+Sutot
 
 npoints = 2
 0. 0. offshore
-200. 0. bar
+500. 0. bar
 
 npointvar = 2
 zs
