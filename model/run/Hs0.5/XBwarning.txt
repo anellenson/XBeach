@@ -1,0 +1,4 @@
+ Warning: Specification of instat using parameter 'wbctype'
+                    dtheta =360.0000 Warning: value > recommended value of180.0000
+                        rt =172800.0000 Warning: value > recommended value of7200.0000
+  Warning: shallow water so long wave variance is reduced using par%nmax

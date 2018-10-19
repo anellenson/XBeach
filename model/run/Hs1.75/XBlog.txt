@@ -1,0 +1,909 @@
+  **********************************************************
+                     Welcome to XBeach
+ 
+               version 1.23.Unversioned directory XBeachX BETA release
+               dateThu Mar 22 21:16:36 PDT 2018
+     URL:
+  **********************************************************
+ 
+  Simulation started: YYYYMMDD    hh:mm:ss     time zone (UTC)
+                      20181019  15:57:20     -0700
+ 
+    running in:/home/server/pi/homes/aellenso/Research/XBeach1/model/run/Hs1.75
+  General Input Module
+  Reading input parameters:
+   XBeach reading fromparams.txt
+  --------------------------------
+  Backward compatibility:
+                    instat =jons
+  --------------------------------
+  Physical processes:
+                 wavemodel =surfbeat
+                    cyclic =0 (no record found, default value used)
+                     swave =1 (no record found, default value used)
+                single_dir =0 (no record found, default value used)
+                     lwave =1 (no record found, default value used)
+                      flow =1 (no record found, default value used)
+                  sedtrans =1 (no record found, default value used)
+                morphology =1
+               avalanching =1 (no record found, default value used)
+                    gwflow =0 (no record found, default value used)
+                     ships =0 (no record found, default value used)
+                vegetation =0 (no record found, default value used)
+                  setbathy =0 (no record found, default value used)
+                 viscosity =1 (no record found, default value used)
+                 advection =1 (no record found, default value used)
+                      wind =1 (no record found, default value used)
+  --------------------------------
+  Grid parameters:
+                  gridform =xbeach (no record found, default value used)
+                      xori =.0000
+                      yori =.0000
+                      alfa =.0000
+                        nx =98
+                        ny =0
+                    posdwn =.0000
+                   depfile =bed.dep
+                     vardx =1
+                        dx =-1.0000 (no record found, default value used)
+                        dy =-1.0000 (no record found, default value used)
+                     xfile =x.grd
+                     yfile =y.grd
+                        nz =1 (no record found, default value used)
+                  thetamin =.0000
+                  thetamax =360.0000
+                 thetanaut =1
+                    dtheta =360.0000 Warning: value > recommended value of180.0000
+  --------------------------------
+  Model time parameters:
+                       CFL =.7000 (no record found, default value used)
+                     dtset =.0000 (no record found, default value used)
+                     tstop =172800.0000
+                  maxdtfac =50.0000 (no record found, default value used)
+  --------------------------------
+  Physical constants:
+                       rho =1025.0000 (no record found, default value used)
+                         g =9.8100 (no record found, default value used)
+                depthscale =1.0000 (no record found, default value used)
+  --------------------------------
+  Initial conditions:
+                zsinitfile = None specified
+  --------------------------------
+  Wave boundary condition parameters:
+                   wbctype =parametric
+                    bcfile =jonswap.txt
+                     taper =100.0000 (no record found, default value used)
+                      nmax =.8000 (no record found, default value used)
+               lateralwave =neumann (no record found, default value used)
+  --------------------------------
+  Wave-spectrum boundary condition parameters:
+                    random =0
+                   fcutoff =.0000 (no record found, default value used)
+                   trepfac =.0100 (no record found, default value used)
+                   sprdthr =.0800 (no record found, default value used)
+                Tm01switch =0 (no record found, default value used)
+                        rt =172800.0000 Warning: value > recommended value of7200.0000
+                      dtbc =1.0000
+              nspectrumloc =1 (no record found, default value used)
+  --------------------------------
+  Flow boundary condition parameters:
+                     front =abs_1d (no record found, default value used)
+                      left =neumann (no record found, default value used)
+                     right =neumann (no record found, default value used)
+                      back =abs_1d (no record found, default value used)
+                       ARC =1 (no record found, default value used)
+                     order =2.0000 (no record found, default value used)
+                  freewave =0 (no record found, default value used)
+                      epsi =-1.0000 (no record found, default value used)
+                  tidetype =velocity (no record found, default value used)
+  --------------------------------
+  Tide boundary conditions:
+                   tideloc =1
+                   zs0file =tides.txt
+  --------------------------------
+  Discharge boundary conditions:
+            disch_loc_file = None specified
+     disch_timeseries_file = None specified
+                ndischarge =0 (no record found, default value used)
+               ntdischarge =0 (no record found, default value used)
+                      beta =.1000 (no record found, default value used)
+  --------------------------------
+  Wave breaking parameters:
+                     break =roelvink2 (no record found, default value used)
+                     gamma =.5500 (no record found, default value used)
+                    gammax =2.0000 (no record found, default value used)
+                     alpha =1.0000 (no record found, default value used)
+                         n =10.0000 (no record found, default value used)
+                     delta =.0000 (no record found, default value used)
+                        fw =.0000 (no record found, default value used)
+                    fwfile = None specified
+                  fwcutoff =1000.0000 (no record found, default value used)
+              breakerdelay =1.0000 (no record found, default value used)
+  --------------------------------
+  Roller parameters:
+                    roller =1 (no record found, default value used)
+                       rfb =0 (no record found, default value used)
+  --------------------------------
+  Wave-current interaction parameters:
+                       wci =0 (no record found, default value used)
+                      hwci =.1000 (no record found, default value used)
+                   hwcimax =100.0000 (no record found, default value used)
+                      cats =4.0000 (no record found, default value used)
+  --------------------------------
+  Flow parameters:
+               bedfriction =chezy (no record found, default value used)
+               bedfricfile = None specified
+               bedfriccoef =55.0000 (no record found, default value used)
+                       nuh =.1000 (no record found, default value used)
+                    nuhfac =1.0000 (no record found, default value used)
+                      smag =1 (no record found, default value used)
+  --------------------------------
+  Coriolis force parameters:
+                    wearth =.0417 (no record found, default value used)
+                       lat =.0000 (no record found, default value used)
+  --------------------------------
+  Wind parameters:
+                      rhoa =1.2500 (no record found, default value used)
+                        Cd =.0020 (no record found, default value used)
+                  windfile = None specified
+                     windv =.0000 (no record found, default value used)
+                    windth =270.0000 (no record found, default value used)
+  --------------------------------
+  Sediment transport parameters:
+                      form =vanthiel_vanrijn (no record found, default value used)
+                  waveform =vanthiel (no record found, default value used)
+                       sws =1 (no record found, default value used)
+                       lws =1 (no record found, default value used)
+                     BRfac =1.0000 (no record found, default value used)
+                     facua =.1000 (no record found, default value used)
+                     facSk =.1000 (no record found, default value used)
+                     facAs =.1000 (no record found, default value used)
+                     Tbfac =1.0000 (no record found, default value used)
+                      turb =bore_averaged (no record found, default value used)
+                   turbadv =none (no record found, default value used)
+                       sus =1 (no record found, default value used)
+                       bed =1 (no record found, default value used)
+                      bulk =0 (no record found, default value used)
+                     facsl =1.6000 (no record found, default value used)
+                        z0 =.0060 (no record found, default value used)
+                      smax =-1.0000 (no record found, default value used)
+               bdslpeffmag =roelvink_total (no record found, default value used)
+               bdslpeffini =none (no record found, default value used)
+               bdslpeffdir =none (no record found, default value used)
+               reposeangle =30.0000 (no record found, default value used)
+                     tsfac =.1000 (no record found, default value used)
+                     Tsmin =.5000 (no record found, default value used)
+                     facDc =1.0000 (no record found, default value used)
+                       lwt =0 (no record found, default value used)
+                     betad =1.0000 (no record found, default value used)
+                fallvelred =0 (no record found, default value used)
+                 dilatancy =0 (no record found, default value used)
+  --------------------------------
+  Bed composition parameters:
+                       ngd =1 (no record found, default value used)
+                        nd =3 (no record found, default value used)
+                       por =.4000 (no record found, default value used)
+   D50 =.0002 (no record found, default value used)
+   D90 =.0003 (no record found, default value used)
+                      rhos =2650.0000 (no record found, default value used)
+                       dzg =.1000 (no record found, default value used)
+                      dzg1 =.1000 (no record found, default value used)
+                      dzg2 =.1000 (no record found, default value used)
+                      dzg3 =.1000 (no record found, default value used)
+   sedcal =1.0000 (no record found, default value used)
+   ucrcal =1.0000 (no record found, default value used)
+  --------------------------------
+  Morphology parameters:
+                    morfac =3.0000
+                 morfacopt =1 (no record found, default value used)
+                  morstart =.0000 (no record found, default value used)
+                   morstop =172800.0000 (no record found, default value used)
+                    wetslp =.3000 (no record found, default value used)
+                    dryslp =1.0000 (no record found, default value used)
+                   hswitch =.1000 (no record found, default value used)
+                     dzmax =.0500 (no record found, default value used)
+                    struct =0 (no record found, default value used)
+  --------------------------------
+  Output variables:
+                   timings =1 (no record found, default value used)
+                    tunits = None specified
+                    tstart =.0000
+                      tint =1.0000 (no record found, default value used)
+                  tsglobal = None specified
+                     tintg =500.0000
+                  tspoints = None specified
+                     tintp =1.0000 (no record found, default value used)
+                    tsmean = None specified
+                     tintm =3600.0000
+                nglobalvar =3
+   nglobalvar: Will generate global output for variable:zb
+   nglobalvar: Will generate global output for variable:H
+   nglobalvar: Will generate global output for variable:u
+                   npoints =2
+                  nrugauge =0 (no record found, default value used)
+                 npointvar =2
+   Output pointoffshore xpoint:.00   ypoint:.00
+   Output pointbar xpoint:200.00   ypoint:.00
+   npointvar: Will generate point output for variable:zs
+   npointvar: Will generate point output for variable:H
+  Order of point output variables stored in 'pointvars.idx'
+                 nrugdepth =1 (no record found, default value used)
+   rugdepth =.0000 (no record found, default value used)
+                  nmeanvar =3
+   nmeanvar: Will generate mean, min, max and variance output for variable:zb
+   nmeanvar: Will generate mean, min, max and variance output for variable:H
+   nmeanvar: Will generate mean, min, max and variance output for variable:u
+              outputformat =netcdf
+           outputprecision =double (no record found, default value used)
+                ncfilename = None specified
+  netcdf output to:xboutput.nc
+              remdryoutput =1 (no record found, default value used)
+  --------------------------------
+  Output projection:
+                projection = None specified
+                    rotate =1 (no record found, default value used)
+  --------------------------------
+  Wave numerics parameters:
+                    scheme =warmbeam (no record found, default value used)
+                    snells =1 (no record found, default value used)
+  --------------------------------
+  Flow numerics parameters:
+                       eps =.0050 (no record found, default value used)
+                    eps_sd =.5000 (no record found, default value used)
+                      umin =.0000 (no record found, default value used)
+                      hmin =.2000 (no record found, default value used)
+                  secorder =-123 (no record found, default value used)
+  --------------------------------
+  Sediment transport numerics parameters:
+                  thetanum =1.0000 (no record found, default value used)
+                sourcesink =0 (no record found, default value used)
+                      cmax =.1000 (no record found, default value used)
+  --------------------------------
+  Bed update numerics parameters:
+                   frac_dz =.7000 (no record found, default value used)
+                    nd_var =2 (no record found, default value used)
+                     split =1.0100 (no record found, default value used)
+                     merge =.0100 (no record found, default value used)
+  --------------------------------
+  Finished reading input parameters
+  --------------------------------
+  ------------------------------------
+  Building Grid and Bathymetry
+  ------------------------------------
+  Initializing .....
+   readtide: reading tide time series fromtides.txt ...
+  --------------------------------
+  Initializing spectral wave boundary conditions
+  --------------------------------
+ Distance output point001(.00,.00) to gridpoint(1,1): .00 m
+ Distance output point002(200.00,.00) to gridpoint(19,1): .92 m
+  NetCDF outputformat
+   Creating netcdf variable:zb
+   Creating netcdf variable:H
+   Creating netcdf variable:u
+   Creating netcdf variable:point_zs
+   Creating netcdf variable:point_H
+   Creating netcdf variable:zb_mean
+   Creating netcdf variable:zb_var
+   Creating netcdf variable:zb_min
+   Creating netcdf variable:zb_max
+   Creating netcdf variable:H_mean
+   Creating netcdf variable:H_var
+   Creating netcdf variable:H_min
+   Creating netcdf variable:H_max
+   Creating netcdf variable:u_mean
+   Creating netcdf variable:u_var
+   Creating netcdf variable:u_min
+   Creating netcdf variable:u_max
+  Writing file definition.
+  Writing point vars.
+  Setting up boundary conditions
+  --------------------------------
+  Calculating spectral wave boundary conditions
+  --------------------------------
+  Reading spectrum at location1
+   waveparams: Reading from:jonswap.txt ...
+   XBeach reading fromjonswap.txt
+                    nmodal =1 (no record found, default value used)
+                       Hm0 =1.7500
+                        fp =.1000
+                  gammajsp =3.3000
+                         s =20.0000
+   tma =0 (no record found, default value used)
+                   mainang =270.0000
+                      fnyq =1.0000
+                       dfj =.0050 (no record found, default value used)
+  Interpreting spectrum at location1
+  Values calculated from interpolated spectrum:
+  Hm0       =1.75 m
+  Trep      =9.15 s
+  Mean dir  =270.41 degN
+  Overall Trep from all spectra calculated:9.15 s
+  Calculating Fourier components
+  5.0% done
+  10.0% done
+  15.0% done
+  20.0% done
+  25.0% done
+  30.0% done
+  35.0% done
+  40.0% done
+  45.0% done
+  50.0% done
+  55.0% done
+  60.0% done
+  65.0% done
+  70.0% done
+  75.0% done
+  80.0% done
+  85.0% done
+  90.0% done
+  95.0% done
+  100.0% done
+  Wave energy outside computational domain at offshore boundary:.0%
+  Calculating short wave time series for theta bin1 of1
+  Y-point1 of1 done.
+  Wave bin1 contains100.00% of total energy
+   Writing wave energy toE_reuse.bcf ...
+  file done
+  Calculating primary wave interaction
+  .1% done
+  .3% done
+  .4% done
+  .5% done
+  .6% done
+  .7% done
+  .9% done
+  1.0% done
+  1.1% done
+  1.2% done
+  1.3% done
+  1.5% done
+  1.6% done
+  1.7% done
+  1.8% done
+  2.0% done
+  2.1% done
+  2.2% done
+  2.3% done
+  2.4% done
+  2.6% done
+  2.7% done
+  2.8% done
+  2.9% done
+  3.0% done
+  3.2% done
+  3.3% done
+  3.4% done
+  3.5% done
+  3.6% done
+  3.8% done
+  3.9% done
+  4.0% done
+  4.1% done
+  4.2% done
+  4.4% done
+  4.5% done
+  4.6% done
+  4.7% done
+  4.9% done
+  5.0% done
+  5.1% done
+  5.2% done
+  5.3% done
+  5.4% done
+  5.5% done
+  5.6% done
+  5.7% done
+  5.8% done
+  5.9% done
+  6.0% done
+  6.1% done
+  6.2% done
+  6.3% done
+  6.4% done
+  6.5% done
+  6.6% done
+  6.7% done
+  6.8% done
+  6.9% done
+  7.0% done
+  7.1% done
+  7.2% done
+  7.3% done
+  7.4% done
+  7.5% done
+  7.6% done
+  7.7% done
+  7.8% done
+  7.9% done
+  8.0% done
+  8.1% done
+  8.2% done
+  8.3% done
+  8.4% done
+  8.5% done
+  8.6% done
+  8.7% done
+  8.8% done
+  8.9% done
+  9.0% done
+  9.1% done
+  9.2% done
+  9.3% done
+  9.4% done
+  9.5% done
+  9.6% done
+  9.7% done
+  9.8% done
+  9.9% done
+  10.0% done
+  10.1% done
+  10.2% done
+  10.3% done
+  10.4% done
+  10.5% done
+  10.6% done
+  10.7% done
+  10.8% done
+  10.9% done
+  11.0% done
+  11.1% done
+  11.2% done
+  11.3% done
+  11.4% done
+  11.5% done
+  11.6% done
+  11.7% done
+  11.8% done
+  11.9% done
+  12.0% done
+  12.1% done
+  12.2% done
+  12.3% done
+  12.4% done
+  12.5% done
+  12.6% done
+  12.7% done
+  12.8% done
+  12.9% done
+  13.0% done
+  13.1% done
+  13.2% done
+  13.3% done
+  13.4% done
+  13.5% done
+  13.6% done
+  13.7% done
+  13.8% done
+  13.9% done
+  14.0% done
+  14.2% done
+  14.3% done
+  14.4% done
+  14.5% done
+  14.6% done
+  14.7% done
+  14.8% done
+  14.8% done
+  14.9% done
+  15.0% done
+  15.1% done
+  15.2% done
+  15.2% done
+  15.3% done
+  15.4% done
+  15.5% done
+  15.6% done
+  15.6% done
+  15.7% done
+  15.8% done
+  15.9% done
+  16.0% done
+  16.0% done
+  16.1% done
+  16.2% done
+  16.3% done
+  16.4% done
+  16.4% done
+  16.5% done
+  16.6% done
+  16.7% done
+  16.8% done
+  16.8% done
+  16.9% done
+  17.0% done
+  17.1% done
+  17.2% done
+  17.3% done
+  17.3% done
+  17.4% done
+  17.5% done
+  17.6% done
+  17.7% done
+  17.7% done
+  17.8% done
+  17.9% done
+  18.0% done
+  18.1% done
+  18.1% done
+  18.2% done
+  18.3% done
+  18.4% done
+  18.5% done
+  18.5% done
+  18.6% done
+  18.7% done
+  18.8% done
+  18.9% done
+  18.9% done
+  19.0% done
+  19.1% done
+  19.2% done
+  19.3% done
+  19.3% done
+  19.4% done
+  19.5% done
+  19.6% done
+  19.7% done
+  19.7% done
+  19.8% done
+  19.9% done
+  20.0% done
+  20.1% done
+  20.1% done
+  20.2% done
+  20.3% done
+  20.4% done
+  20.5% done
+  20.6% done
+  20.6% done
+  20.7% done
+  20.8% done
+  20.9% done
+  21.0% done
+  21.0% done
+  21.1% done
+  21.2% done
+  21.3% done
+  21.4% done
+  21.4% done
+  21.5% done
+  21.6% done
+  21.7% done
+  21.8% done
+  21.8% done
+  21.9% done
+  22.0% done
+  22.1% done
+  22.2% done
+  22.2% done
+  22.3% done
+  22.4% done
+  22.5% done
+  22.6% done
+  22.6% done
+  22.7% done
+  22.8% done
+  22.9% done
+  23.0% done
+  23.0% done
+  23.1% done
+  23.2% done
+  23.3% done
+  23.4% done
+  23.5% done
+  23.5% done
+  23.6% done
+  23.7% done
+  23.8% done
+  23.9% done
+  23.9% done
+  24.0% done
+  24.1% done
+  24.2% done
+  24.3% done
+  24.3% done
+  24.4% done
+  24.5% done
+  24.6% done
+  24.7% done
+  24.7% done
+  24.8% done
+  24.9% done
+  25.0% done
+  25.1% done
+  25.1% done
+  25.2% done
+  25.3% done
+  25.4% done
+  25.5% done
+  25.5% done
+  25.6% done
+  25.7% done
+  25.8% done
+  25.9% done
+  25.9% done
+  26.0% done
+  26.1% done
+  26.2% done
+  26.3% done
+  26.3% done
+  26.4% done
+  26.5% done
+  26.6% done
+  26.7% done
+  26.8% done
+  26.8% done
+  26.9% done
+  27.0% done
+  27.1% done
+  27.2% done
+  27.2% done
+  27.3% done
+  27.4% done
+  27.5% done
+  27.6% done
+  27.6% done
+  27.7% done
+  27.8% done
+  27.9% done
+  28.0% done
+  28.0% done
+  28.1% done
+  28.2% done
+  28.3% done
+  28.4% done
+  28.4% done
+  28.5% done
+  28.6% done
+  28.7% done
+  28.8% done
+  28.8% done
+  28.9% done
+  29.0% done
+  29.1% done
+  29.2% done
+  29.2% done
+  29.3% done
+  29.4% done
+  29.5% done
+  29.6% done
+  29.6% done
+  29.7% done
+  29.8% done
+  29.9% done
+  30.0% done
+  30.1% done
+  30.1% done
+  30.2% done
+  30.3% done
+  30.4% done
+  30.5% done
+  30.5% done
+  30.6% done
+  30.7% done
+  30.8% done
+  30.9% done
+  30.9% done
+  31.0% done
+  31.1% done
+  31.2% done
+  31.3% done
+  31.3% done
+  31.4% done
+  31.5% done
+  31.6% done
+  31.7% done
+  31.7% done
+  31.8% done
+  31.9% done
+  31.9% done
+  32.0% done
+  32.0% done
+  32.1% done
+  32.2% done
+  32.2% done
+  32.3% done
+  32.3% done
+  32.4% done
+  32.5% done
+  32.5% done
+  32.6% done
+  32.6% done
+  32.7% done
+  32.8% done
+  32.8% done
+  32.9% done
+  33.0% done
+  33.0% done
+  33.1% done
+  33.1% done
+  33.2% done
+  33.3% done
+  33.3% done
+  33.4% done
+  33.4% done
+  33.5% done
+  33.6% done
+  33.6% done
+  33.7% done
+  33.7% done
+  33.8% done
+  33.9% done
+  33.9% done
+  34.0% done
+  34.0% done
+  34.1% done
+  34.2% done
+  34.2% done
+  34.3% done
+  34.3% done
+  34.4% done
+  34.5% done
+  34.5% done
+  34.6% done
+  34.6% done
+  34.7% done
+  34.8% done
+  34.8% done
+  34.9% done
+  34.9% done
+  35.0% done
+  35.1% done
+  35.1% done
+  35.2% done
+  35.2% done
+  35.3% done
+  35.4% done
+  35.4% done
+  35.5% done
+  35.5% done
+  35.6% done
+  35.7% done
+  35.7% done
+  35.8% done
+  35.8% done
+  35.9% done
+  36.0% done
+  36.0% done
+  36.1% done
+  36.2% done
+  36.2% done
+  36.3% done
+  36.3% done
+  36.4% done
+  36.5% done
+  36.5% done
+  36.6% done
+  36.6% done
+  36.7% done
+  36.8% done
+  36.8% done
+  36.9% done
+  36.9% done
+  37.0% done
+  37.1% done
+  37.1% done
+  37.2% done
+  37.2% done
+  37.3% done
+  37.4% done
+  37.4% done
+  37.5% done
+  37.5% done
+  37.6% done
+  37.7% done
+  37.7% done
+  37.8% done
+  37.8% done
+  37.9% done
+  38.0% done
+  38.0% done
+  38.1% done
+  38.1% done
+  38.2% done
+  38.3% done
+  38.3% done
+  38.4% done
+  38.4% done
+  38.5% done
+  38.6% done
+  38.6% done
+  38.7% done
+  38.7% done
+  38.8% done
+  38.9% done
+  38.9% done
+  39.0% done
+  39.0% done
+  39.1% done
+  39.2% done
+  39.2% done
+  39.3% done
+  39.4% done
+  39.4% done
+  39.5% done
+  39.5% done
+  39.6% done
+  39.7% done
+  39.7% done
+  39.8% done
+  39.8% done
+  39.9% done
+  40.0% done
+  40.0% done
+  40.1% done
+  40.1% done
+  40.2% done
+  40.3% done
+  40.3% done
+  40.4% done
+  40.4% done
+  40.5% done
+  40.6% done
+  40.6% done
+  40.7% done
+  40.7% done
+  40.8% done
+  40.9% done
+  40.9% done
+  41.0% done
+  41.0% done
+  41.1% done
+  41.2% done
+  41.2% done
+  41.3% done
+  41.3% done
+  41.4% done
+  41.5% done
+  41.5% done
+  41.6% done
+  41.6% done
+  41.7% done
+  41.8% done
+  41.8% done
+  41.9% done
+  41.9% done
+  42.0% done
+  42.1% done
+  42.1% done
+  42.2% done
+  42.3% done
+  42.3% done
+  42.4% done
+  42.4% done
+  42.5% done
+  42.6% done
+  42.6% done
+  42.7% done
+  42.7% done
+  42.8% done
+  42.9% done
+  42.9% done
+  43.0% done
+  43.0% done
+  43.1% done
+  43.2% done
+  43.2% done
+  43.3% done
+  43.3% done
+  43.4% done
+  43.5% done
+  43.5% done
+  43.6% done
+  43.6% done
+  43.7% done
+  43.8% done
+  43.8% done
+  43.9% done
+  43.9% done
+  44.0% done
+  44.1% done
+  44.1% done
+  44.2% done
+  44.2% done
+  44.3% done
+  44.4% done
+  44.4% done
+  44.5% done
